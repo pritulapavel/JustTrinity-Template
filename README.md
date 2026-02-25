@@ -17,6 +17,13 @@ The project is designed for team collaboration using Git.
 
 ---
 
+
+## 🎨 Design
+
+The design for this project is available on Figma: [Open Design in Figma](https://www.figma.com/design/K0iHmiSiMJuKxr5duOKvIC/CareerPath-Mentoring-task?node-id=1-323&t=35CZZs2a1AoqnHdG-0)
+
+---
+
 ## ⚡ Quick Start
 
 ### 1️⃣ Clone the Project

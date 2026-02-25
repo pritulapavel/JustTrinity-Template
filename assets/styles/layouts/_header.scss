@@ -1,8 +1,6 @@
-@use '../base/reset' as *;
-@use '../components/variables' as *;
-@use '../components/mixins' as *;
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
 
 .header {
-    min-width: 27.2rem;
-    margin: 0 auto;
+    width: 100%;
 }

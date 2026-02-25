@@ -1,4 +1,4 @@
-# 🚀 Small Web Project
+# 🚀 JustTrinity Mentoring Web Project
 
 This is a Mentoring UI web project built using **HTML** and **SCSS**.
 The project is designed for team collaboration using Git.

@@ -6,9 +6,10 @@
 }
 
 .header {
-  height: 64px;
-  display: flex;
-  align-items: center;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
 
   &__wrapper {
     display: flex;
@@ -23,6 +24,11 @@
     gap: 15px;
   }
   
+  .header__wrapper {
+    .header-text {
+        display: none;
+    }
+  }
 }
 
 
@@ -35,12 +41,20 @@
   height: 32px;
 }
 
+.header__logo svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity .3s ease;
+}
+// test
 .header__logo img {
   position: absolute;
   top: 0;
   left: 0;
   transition: opacity .3s ease;
 }
+
 
 .theme-toggle {
   position: relative;
@@ -49,11 +63,12 @@
   height: 24px;
 }
 
-.theme-toggle img {
+.theme-toggle svg {
   position: absolute;
   top: 0;
   left: 0;
   transition: opacity .3s ease;
+  cursor: pointer;
 }
 
 /* LIGHT MODE */
@@ -79,16 +94,18 @@
       transform: translateX(0);
       opacity: 1;
     }
+    
   }
 
   .burger-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    
+    gap: 10px;    
     width: 100px;
     height: 37px;
+    z-index: 101;
+    position: relative;
     
     
     .icon {
@@ -107,14 +124,22 @@
     }
   }
 
+  .desktop-toggle {
+    display: none;
+  }
+
   .menu-overlay {
-    position: absolute;    
+    position: fixed;  
     right: 0;
-    width: 200px; // ან 80% დიზაინის მიხედვით
-    height: 350px;
+    // width: 200px; // ან 80% დიზაინის მიხედვით
+    // height: 350px;
+     top: 0;
+    left: 0;
+     width: 100vw;
+    height: 100vh;
     background: white;
-    padding: 20px;
-    transform: translateX(100%); // თავიდან დამალულია მარჯვნივ
+    padding: 60px 20px 20px 20px;
+    transform: translateX(100%);
     transition: transform 0.4s ease-in-out;
     z-index: 99;
 
@@ -130,27 +155,48 @@
         color: #000000;      
         font-size: 16px;
       }
+      
+    }
+    .menu-actions {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 30px;
+        gap: 20px;
 
-      .btn-primary {
+
+        .btn-primary {
         display: block;
         padding: 12px 30px;
         border: 2px;
         border-radius: 8px;
         background-color: #000000;
         color: #F5F5F5;
-        width: 100%;
+        width: auto;
         text-align: center;
       }
     }
   }
+    .menu-toggle:checked ~ .menu-overlay {
+    transform: translateX(0);
+  }
+
 }
 
 // dark mode
 
 #theme-toggle:checked ~ .page {
 
-  background-color: #0f172a;
+  background-color:#0f172a;
   color: #ffffff;
+
+  .desktop-toggle {
+    .theme-dark {
+      opacity: 1; /* აჩენს აიკონს დარქ მოუდში */
+      pointer-events: auto;
+    }
+  }
 
   /* HEADER */
   .header {
@@ -182,7 +228,7 @@
 
   /* MENU */
   .menu-overlay {
-    background-color: #1E2A39;
+   
 
     a {
       color: #ffffff;
@@ -191,6 +237,176 @@
     .btn-primary {
       background-color: #ffffff;
       color: #0f172a;
+    }
+  }
+}
+
+
+
+// desktop
+
+
+@media (min-width: 1024px) {
+    .desktop-toggle {
+    display: flex;       /* ახლა გამოჩნდება desktop toggle */
+    cursor: pointer;
+    svg {
+      width: 24px;
+      height: 24px;
+      path {
+        fill: white;
+      }
+    }
+  }
+
+    
+  .header {
+
+    
+    .header__wrapper {
+        border-radius: 8px;
+        background-color: #052A44;
+        color: white;
+        padding: 10px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .header-text {
+            display: block;
+        }
+
+
+        .header__logo {
+            display: none;
+        }
+
+        .header__actions {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex: 1;
+            justify-content: flex-end;
+           
+            
+        }
+
+        .theme-toggle{
+            display: none !important;
+            // order: 2;
+            // color: white;
+            // display: flex;
+            // cursor: pointer;
+            // svg {
+            //     width: 24px;
+            //     height: 24px;
+      
+            //     path {
+            //         fill: white; 
+            //     }
+            // }
+        }
+
+        .navbar {
+            .menu-overlay {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                position: static;
+                height: auto;
+                transform: none;            
+                flex-direction: row;
+                gap: 40px;
+                background: transparent;
+                padding: 0;
+                overflow: visible;
+                            
+                .menu-nav {
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-80%);
+                }
+                .desktop-toggle {
+                    display: flex;
+                    cursor: pointer;
+
+                    .theme-dark {
+                        opacity: 1;
+                        pointer-events: auto;
+
+                        .path {
+                            fill: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    &__actions {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+  }
+
+  .navbar {
+     
+    
+    .burger-button {
+      display: none;
+    }
+
+    .menu-overlay {
+      position: static;
+      transform: none;
+      opacity: 1;
+      width: auto;
+      height: auto;
+      background: transparent;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+
+      .menu-links {
+        flex-direction: row;
+        gap: 30px;
+
+        a {
+          font-weight: 500;
+          color: inherit;
+         
+
+          
+        }
+      }
+
+      .menu-actions {
+        flex-direction: row;
+        padding-top: 0;
+        gap: 20px;
+
+        .btn-signin {
+          text-decoration: none;
+          color: inherit;
+          font-weight: 600;
+        }
+
+        .btn-primary {
+          width: auto;
+          padding: 10px 24px;
+          background-color: white;
+          color: black;
+          border: none;
+          
+          &:hover {
+            background-color: darken(#636c79, 10%);
+          }
+        }
+      }
     }
   }
 }

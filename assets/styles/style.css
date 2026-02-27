@@ -539,7 +539,7 @@ main {
   justify-content: center;
   flex-direction: column;
   gap: 2rem;
-  padding: 1rem;
+  padding: 1rem 2rem;
   width: 100%;
 }
 .contact__form input,
@@ -1486,8 +1486,7 @@ main {
 
 @media (min-width: 1024px) {
   .contact .contact__container {
-    padding: 2rem 15rem;
-    margin: 10rem;
+    padding: 3rem 15rem;
   }
 }
 

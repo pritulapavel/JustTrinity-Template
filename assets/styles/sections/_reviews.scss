@@ -1,2 +1,116 @@
-@use '../abstract/variables' as *;
-@use '../abstract/mixins' as *;
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+.reviews-cont {
+	position: relative;
+	@include tablet {
+		padding: 0 3.95rem;
+	}
+	.ellipse {
+		display: none;
+		@include tablet {
+			position: absolute;
+			left: 0.8rem;
+			bottom: 0.8rem;
+			display: block;
+			z-index: 1;
+		}
+	}
+}
+
+.reviews {
+	display: grid;
+	row-gap: 5.5rem;
+}
+.reviews-title {
+    @include flex(null, null, column, 1.5rem);
+	text-align: center;
+	h2 {
+		font-weight: 600;
+		font-size: 2.8rem;
+		line-height: 3.6rem;
+		letter-spacing: 0.02rem;
+		color: $color-text-heading;
+        @include tablet {
+            font-size: 4.2rem;
+        }
+	}
+	.p {
+		font-weight: 400;
+		font-size: 1.6rem;
+		line-height: 2.8rem;
+		color: $color-text-secondary;
+		letter-spacing: 0.02rem;
+	}
+}
+.reviews__wrapper {
+	display: grid;
+	grid-template-columns: repeat(1, minmax(26.4rem, 37.1rem));
+	row-gap: 5.5rem;
+	column-gap: 2rem;
+	justify-content: center;
+	@include tablet {
+		grid-template-columns: repeat(3, minmax(26.4rem, 37.1rem));
+	}
+	.reviews-card {
+		@include flex(null, center, column);
+        position: relative;
+		text-align: center;
+		border-radius: $border-radius-about-card;
+		min-height: 24.3rem;
+		max-height: 27.3rem;
+		box-shadow: $color-about-card-shadow;
+        background-color: $color-btn-secondary;
+        padding: 0 4.4rem;
+        z-index: 2;
+		h2 {
+			font-family: $font-jakarta;
+			font-style: normal;
+			font-weight: 600;
+			font-size: 1.8rem;
+			line-height: 2.3rem;
+			color: $color-text-secondary;
+            @include tablet {
+                font-size: 2.2rem;
+            }
+		}
+		p {
+			font-style: normal; 
+			font-weight: 400;
+			font-size: 1.6rem;
+			line-height: 180%;
+			color: $color-text-subtle;
+		}
+	}
+}
+
+.user {
+    @include flex(center, center, row);
+    img {
+        width: clamp(45px, 36.7px + 2.6vw, 70px);
+    }
+    .info {
+        @include flex(center, center, column, null);
+        .user-name {
+            font-weight: 700;
+            font-size: 1.2rem;
+            line-height: 1.7rem;
+            color: $color-review-name;
+            @include tablet {
+                font-size: 1.8rem;
+                line-height: 2.6rem;
+            }
+        }
+        .user-profession {
+            font-weight: 400;
+            font-size: 0.9rem;
+            line-height: 1.6rem;
+            color: $color-review-name;
+            @include tablet {
+                font-size: 1.4rem;
+                line-height: 2.4rem;
+            }
+        }
+    }
+}
+

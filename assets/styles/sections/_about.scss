@@ -103,19 +103,4 @@
 		max-width: 2.343rem;
 	}
 }
-.read-more {
-	display: grid;
-	justify-self: center;
-	background: $color-text-secondary;
-	font-style: normal;
-	font-weight: 600;
-	font-size: 1.6rem;
-	color: $color-btn-secondary;
-	padding: 0.8rem 1.2rem;
-	gap: 1rem;
-	background: $color-header-primary;
-	border-radius: 0.8rem;
-    @include tablet {
-		padding: 1.5rem 4.4rem;
-	}
-}
+

@@ -1,28 +1,87 @@
 @use '../abstract/variables' as *;
 @use '../abstract/mixins' as *;
+@use "sass:color";
 
 .header {
     width: 100%;
 }
 
 .header {
-  height: 64px;
-  display: flex;
-  align-items: center;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
 
   &__wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex(center, space-between, null, 0);
     width: 100%;
   }
+  
 
   &__actions {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+    @include flex(center, null, null, 15px);    
+  }
+  
+  .header__wrapper {
+    .header-text {
+        display: none;
+    }
   }
 }
+
+
+// logo and icon default
+
+.header__logo {
+  position: relative;
+  display: inline-block;
+  min-width: 120px;
+  min-height: 32px;
+  
+}
+
+.header__logo svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity .3s ease;
+}
+// test
+.header__logo img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity .3s ease;
+}
+
+
+.theme-toggle {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+
+.theme-toggle svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity .3s ease;
+  cursor: pointer;
+}
+
+/* LIGHT MODE */
+.logo-dark,
+.theme-dark {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.logo-light,
+.theme-light {
+  opacity: 1;
+}
+
 
 .navbar {
   .menu-toggle {
@@ -33,103 +92,307 @@
       transform: translateX(0);
       opacity: 1;
     }
+    
   }
 
   .burger-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    
+    gap: 10px;    
     width: 100px;
     height: 37px;
+    z-index: 101;
+    position: relative;
     
     
     .icon {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
+      @include flex(null, null, column, 3px);
       width: 18px;
 
       span {
         display: block;
         height: 2px;
         width: 100%;
-        background-color: #183B56; // ფერი ფიგმიდან
+        background-color: $color-burger-menu;
         transition: 0.3s;
       }
     }
   }
 
+  .desktop-toggle {
+    display: none;
+  }
+
   .menu-overlay {
-    position: absolute;
-    
+    @include flex(null, space-around, column, 0);
+    position: fixed;  
     right: 0;
-    width: 200px; // ან 80% დიზაინის მიხედვით
-    height: 350px;
-    background: white;
-    padding: 20px;
-    transform: translateX(100%); // თავიდან დამალულია მარჯვნივ
+    // width: 200px; // ან 80% დიზაინის მიხედვით
+    // height: 350px;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: $color-btn-secondary;
+    padding: 60px 20px 20px 20px;
+    transform: translateX(100%);
     transition: transform 0.4s ease-in-out;
     z-index: 99;
 
     .menu-links {
+      @include flex(center, null, column, 25px);
       list-style: none;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 25px;
-
+      
       a {
         text-decoration: none;
-        color: #000000;      
+        color: $color-text-secondary;      
         font-size: 16px;
       }
+      
+    }
+    .menu-actions {
+      @include flex(center, center, column, 20px);
+              
 
-      .btn-primary {
+        .btn-primary {
         display: block;
         padding: 12px 30px;
         border: 2px;
         border-radius: 8px;
-        background-color: #000000;
-        color: white;
-        width: 100%;
+        background-color: $color-text-secondary;
+        color: $color-background-main;
+        width: auto;
         text-align: center;
       }
+    }
+  }
+    .menu-toggle:checked ~ .menu-overlay {
+    transform: translateX(0);
+  }
+
+}
+
+ 
+// dark mode
+
+#theme-toggle:checked ~ .page {
+
+  background-color: $color-background-main-dark;
+  color: $color-text-heading-dark;
+
+  .navbar {
+    .menu-toggle {
+      &:checked ~ .menu-overlay {
+      background-color: $color-background-main-dark;}
+    }
+  }
+
+  .desktop-toggle {
+    .theme-dark {
+      opacity: 1; /* აჩენს აიკონს დარქ მოუდში */
+      pointer-events: auto;
+    }
+  }
+
+  /* HEADER */
+  .header {
+    background-color: $color-background-main-dark;
+  }
+
+  /* LOGO SWITCH */
+  .logo-light {
+    opacity: 0;
+  }
+
+  .logo-dark {
+    opacity: 1;
+  }
+
+  /* THEME ICON SWITCH */
+  .theme-light {
+    opacity: 0;
+  }
+
+  .theme-dark {
+    opacity: 1;
+  }
+
+  /* BURGER */
+  .burger-button .icon span {
+    background-color: $color-text-heading-dark;
+  }
+
+  /* MENU */ 
+  // ეს გასასწორებელია
+  .menu-overlay {
+    // background-color: #0f172a; 
+   
+
+    a {
+      color: $color-text-heading-dark;
+    }
+
+    .btn-primary {
+      background-color: $color-text-heading-dark;
+      color: $color-background-main-dark;
     }
   }
 }
 
 
-// dark mode
+
+// desktop
 
 
-#theme-toggle:checked ~ .page {
-
-    background-color: #0f172a;
-    color: #ffffff;
-
-     .header {
-    background-color: #0f172a;
+@media (min-width: 1024px) {
+    .desktop-toggle {
+    display: flex;       /* ახლა გამოჩნდება desktop toggle */
+    cursor: pointer;
+    svg {
+      width: 24px;
+      height: 24px;
+      path {
+        fill: $color-text-primary;
+      }
+    }
   }
 
-  /* burger lines */
-  .burger-button .icon span {
-    background-color: #ffffff;
-  }
+    
+  .header {
 
-  
-  /* menu */
-  .menu-overlay {
-    background-color: #1e293b;
+    
+    .header__wrapper {
+      @include flex(center, space-between, null, 0);
+        border-radius: 8px;
+        background-color: $color-btn-primary;
+        color: $color-text-primary;
+        padding: 10px 24px;
+        
+        
 
-    a {
-      color: #ffffff;
+        .header-text {
+            display: block;
+        }
+
+
+        .header__logo {
+            display: none;
+        }
+
+        .header__actions {
+          @include flex(center, flex-end, null, 30px);
+            flex: 1;
+                    
+            
+        }
+
+        .theme-toggle{
+            display: none !important;
+            // order: 2;
+            // color: white;
+            // display: flex;
+            // cursor: pointer;
+            // svg {
+            //     width: 24px;
+            //     height: 24px;
+      
+            //     path {
+            //         fill: white; 
+            //     }
+            // }
+        }
+
+        .navbar {
+            .menu-overlay {
+              @include flex(center, space-between, row, 40px);
+                width: 100%;
+                position: static;
+                height: auto;
+                transform: none;            
+                background: transparent;
+                padding: 0;
+                overflow: visible;
+                            
+                .menu-nav {
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-80%);
+                }
+                .desktop-toggle {
+                    @include flex(null, null, null, 0);
+                    cursor: pointer;
+
+                    .theme-dark {
+                        opacity: 1;
+                        pointer-events: auto;
+
+                        .path {
+                            fill: $color-text-primary;
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    .btn-primary {
-      background-color: #ffffff;
-      color: #0f172a;
+
+    &__actions {
+      @include flex(center, null, null, 30px);
+      
+    }
+  }
+
+  .navbar {
+     
+    
+    .burger-button {
+      display: none;
+    }
+
+    .menu-overlay {
+      @include flex(center, null, null, 40px);
+      position: static;
+      transform: none;
+      opacity: 1;
+      width: auto;
+      height: auto;
+      background: transparent;
+      padding: 0;
+      
+
+      .menu-links {
+        @include flex(null, null, row, 30px);
+        
+
+        a {
+          font-weight: 500;
+          color: inherit;          
+        }
+      }
+
+      .menu-actions {
+        @include flex(null, null, row, 20px);
+        
+
+        .btn-signin {
+          text-decoration: none;
+          color: inherit;
+          font-weight: 600;
+        }
+
+        .btn-primary {
+          width: auto;
+          padding: 10px 24px;
+          background-color: $color-text-primary;
+          color: $color-text-secondary;
+          border: none;
+          
+          &:hover {
+            background-color: color.scale($color-btn-secondary, $lightness: -20%);
+          }
+        }
+      }
     }
   }
 }

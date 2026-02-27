@@ -12,16 +12,13 @@
     align-items: center;
 
   &__wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex(center, space-between, null, 0);
     width: 100%;
   }
+  
 
   &__actions {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+    @include flex(center, null, null, 15px);    
   }
   
   .header__wrapper {
@@ -37,8 +34,9 @@
 .header__logo {
   position: relative;
   display: inline-block;
-   width: 120px;
-  height: 32px;
+  min-width: 120px;
+  min-height: 32px;
+  
 }
 
 .header__logo svg {
@@ -59,7 +57,7 @@
 .theme-toggle {
   position: relative;
   display: inline-block;
-    width: 24px;
+  width: 24px;
   height: 24px;
 }
 
@@ -82,7 +80,6 @@
 .theme-light {
   opacity: 1;
 }
-
 
 
 .navbar {
@@ -109,16 +106,14 @@
     
     
     .icon {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
+      @include flex(null, null, column, 3px);
       width: 18px;
 
       span {
         display: block;
         height: 2px;
         width: 100%;
-        background-color: #183B56;
+        background-color: $color-burger-menu;
         transition: 0.3s;
       }
     }
@@ -129,50 +124,43 @@
   }
 
   .menu-overlay {
+    @include flex(null, space-around, column, 0)
     position: fixed;  
     right: 0;
     // width: 200px; // ან 80% დიზაინის მიხედვით
     // height: 350px;
-     top: 0;
+    top: 0;
     left: 0;
-     width: 100vw;
+    width: 100vw;
     height: 100vh;
-    background: white;
+    background: $color-btn-secondary;
     padding: 60px 20px 20px 20px;
     transform: translateX(100%);
     transition: transform 0.4s ease-in-out;
     z-index: 99;
 
     .menu-links {
+      @include flex(center, null, column, 25px);
       list-style: none;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 25px;
-
+      
       a {
         text-decoration: none;
-        color: #000000;      
+        color: $color-text-secondary;      
         font-size: 16px;
       }
       
     }
     .menu-actions {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding-top: 30px;
-        gap: 20px;
-
+      @include flex(center, center, column, 20px);
+              
 
         .btn-primary {
         display: block;
         padding: 12px 30px;
         border: 2px;
         border-radius: 8px;
-        background-color: #000000;
-        color: #F5F5F5;
+        background-color: $color-text-secondary;
+        color: $color-background-main;
         width: auto;
         text-align: center;
       }
@@ -184,12 +172,20 @@
 
 }
 
+ 
 // dark mode
 
 #theme-toggle:checked ~ .page {
 
-  background-color:#0f172a;
-  color: #ffffff;
+  background-color: $color-background-main-dark;
+  color: $color-text-heading-dark;
+
+  .navbar {
+    .menu-toggle {
+      &:checked ~ .menu-overlay {
+      background-color: $color-background-main-dark;}
+    }
+  }
 
   .desktop-toggle {
     .theme-dark {
@@ -200,7 +196,7 @@
 
   /* HEADER */
   .header {
-    background-color: #0f172a;
+    background-color: $color-background-main-dark;
   }
 
   /* LOGO SWITCH */
@@ -223,20 +219,22 @@
 
   /* BURGER */
   .burger-button .icon span {
-    background-color: #ffffff;
+    background-color: $color-text-heading-dark;
   }
 
-  /* MENU */
+  /* MENU */ 
+  // ეს გასასწორებელია
   .menu-overlay {
+    // background-color: #0f172a; 
    
 
     a {
-      color: #ffffff;
+      color: $color-text-heading-dark;
     }
 
     .btn-primary {
-      background-color: #ffffff;
-      color: #0f172a;
+      background-color: $color-text-heading-dark;
+      color: $color-background-main-dark;
     }
   }
 }
@@ -254,7 +252,7 @@
       width: 24px;
       height: 24px;
       path {
-        fill: white;
+        fill: $color-text-primary;
       }
     }
   }
@@ -264,13 +262,13 @@
 
     
     .header__wrapper {
+      @include flex(center, space-between, null, 0);
         border-radius: 8px;
-        background-color: #052A44;
-        color: white;
+        background-color: $color-btn-primary;
+        color: $color-text-primary;
         padding: 10px 24px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        
+        
 
         .header-text {
             display: block;
@@ -282,12 +280,9 @@
         }
 
         .header__actions {
-            display: flex;
-            align-items: center;
-            gap: 30px;
+          @include flex(center, flex-end, null, 30px);
             flex: 1;
-            justify-content: flex-end;
-           
+                    
             
         }
 
@@ -309,15 +304,11 @@
 
         .navbar {
             .menu-overlay {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
+              @include flex(center, space-between, row, 40px);
                 width: 100%;
                 position: static;
                 height: auto;
                 transform: none;            
-                flex-direction: row;
-                gap: 40px;
                 background: transparent;
                 padding: 0;
                 overflow: visible;
@@ -328,7 +319,7 @@
                     transform: translateX(-80%);
                 }
                 .desktop-toggle {
-                    display: flex;
+                    @include flex(null, null, null, 0);
                     cursor: pointer;
 
                     .theme-dark {
@@ -336,7 +327,7 @@
                         pointer-events: auto;
 
                         .path {
-                            fill: white;
+                            fill: $color-text-primary;
                         }
                     }
                 }
@@ -346,9 +337,8 @@
 
 
     &__actions {
-      display: flex;
-      align-items: center;
-      gap: 30px;
+      @include flex(center, null, null, 30px);
+      
     }
   }
 
@@ -360,6 +350,7 @@
     }
 
     .menu-overlay {
+      @include flex(center, null, null, 40px);
       position: static;
       transform: none;
       opacity: 1;
@@ -367,27 +358,21 @@
       height: auto;
       background: transparent;
       padding: 0;
-      display: flex;
-      align-items: center;
-      gap: 40px;
+      
 
       .menu-links {
-        flex-direction: row;
-        gap: 30px;
+        @include flex(null, null, row, 30px);
+        
 
         a {
           font-weight: 500;
-          color: inherit;
-         
-
-          
+          color: inherit;          
         }
       }
 
       .menu-actions {
-        flex-direction: row;
-        padding-top: 0;
-        gap: 20px;
+        @include flex(null, null, row, 20px);
+        
 
         .btn-signin {
           text-decoration: none;
@@ -398,12 +383,12 @@
         .btn-primary {
           width: auto;
           padding: 10px 24px;
-          background-color: white;
-          color: black;
+          background-color: $color-text-primary;
+          color: $color-text-secondary;
           border: none;
           
           &:hover {
-            background-color: darken(#636c79, 10%);
+            background-color: darken($color-btn-secondary, 20%);
           }
         }
       }

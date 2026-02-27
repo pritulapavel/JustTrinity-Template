@@ -1,2 +1,79 @@
 @use '../abstract/variables' as *;
 @use '../abstract/mixins' as *;
+
+.container {
+   
+    gap: 2rem;
+    .footer__contact {
+        @include flex(center, space-between, column, 1rem);
+    }
+
+    .footer__social {
+        @include flex(center, space-between, column, 1rem);
+        .social__logos {
+            @include flex(center, center, null, 2rem);
+
+            .social__link {
+                width: 4rem;
+                height: 4rem;
+                border: 1px solid $color-text-secondary;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.3s ease;
+                text-decoration: none;
+            }
+            
+            svg {
+                height: 18px;
+                width: auto;
+                
+                // &:nth-child(1) {
+                // width: 9px;
+                // }
+              
+                // &:nth-child(2) {
+                // width: 17px;
+                // }
+
+                // &:nth-child(3) {
+                // width: 17px;
+                // }
+
+                path {
+                fill: $color-text-secondary;
+                transition: fill 0.3s ease;
+                }
+
+                &:hover path {
+                fill: $color-text-heading;
+                border-color: $color-text-heading;
+                }
+            }
+        }
+    }
+
+    .footer-mail{
+        @include flex(center, null, column, 1rem)
+    }
+}
+ 
+ 
+// dark mode
+
+#theme-toggle:checked ~ .page {
+    .social__link {
+        border-color: $color-text-heading-dark;
+
+        svg {
+            path {
+                fill: $color-text-heading-dark;
+
+            }
+        }
+    }
+}
+
+// desktop
+

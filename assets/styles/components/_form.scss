@@ -4,7 +4,7 @@
 
 .contact__form {
     @include flex(center, center, column, 2rem);
-    padding: 1rem;
+    padding: 1rem 2rem;
     width: 100%;
 
     input,
@@ -29,4 +29,4 @@
         }
         
     }
-}
+} 

@@ -3,12 +3,37 @@
 
 .container {
     @include flex(center, center, column, 2.4rem);
+    @include tablet {
+        flex-direction: row;
+    }
     .hero__content {
         @include flex(center, center, column, 1.4rem);
         text-align: center;
+        @include tablet {
+            gap: 2.4rem;
+            align-items: flex-start;
+            text-align: left; 
+        }
         & h1 {
             font-size: 3.2rem;
             color: $color-text-heading;
+            font-weight: 400;
+            line-height: 4rem;
+            text-align: center;
+            letter-spacing: 0.02rem;
+            @include tablet {
+                color: $color-text-secondary;
+                font-weight: 800;
+                font-size: 4.8rem;
+                line-height: 5.6rem;
+                text-transform: capitalize;
+            }
+
+            & span {
+                @include tablet {
+                    color: $color-accent;
+                }
+            }
         }
         & p {
             font-size: 1.6rem;
@@ -17,62 +42,159 @@
 
         & .hero__buttons {
             @include flex(center, center, row, 1.4rem);
-            & .btn {
+            & .btn { 
                 font-size: 1.4rem;
-                padding: 0.8rem 1.2rem;
+                padding: 0.8rem 1.2rem; 
                 border-radius: $border-radius-btn;
-
+                @include tablet {
+                    padding: 1.5rem 4.3rem; 
+                }
                 &--primary {
                     background-color: $color-btn-primary;
                     color: $color-btn-secondary;
                 }
-                &--link {
-                     @include flex(center, center, row, 1.4rem);
-                     & span {
-                        width: 3.6rem;
-                        height: 3.6rem;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        background-color: #fff;
-                        border-radius: 50%;
-                     }
-                     & img {
+                
+                &--play { 
+                    @include flex(center, center, row, null);
+                    box-shadow: $hero-play-btn;
+                    padding-left: 1rem;
+                    border-radius: 50%;
+                    padding: 0.8rem;
+                    width: 3.7rem;
+                    height: 3.7rem;
+                    @include tablet {
+                        width: 5.3rem;
+                        height: 5.3rem;
+                    }
+                    & img {
                         width: 1.7rem;
                         height: 1.7rem;
-                        margin-left: 4px;
+                        margin-left: 0.4rem;
                      }
+                }
+                &--link {
+                    @include flex(center, center, row, 1.4rem);
+                    padding: 1.5rem 0.3rem;
                 }
             }
         }
+        .hero-satisfied {
+            @include flex(center, center, row, null);
+        }
     }
     .hero__statistics {
+        position: relative;
+        width: 100%;
+        height: clamp(28.1rem, 23.87rem + 21.17vw, 40.8rem);
         .hero-info {
             @include flex(null, center, column, 0.51rem);
-            article {
+            position: absolute;
+            z-index: 1;
+            left: -5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10rem;
+            @include tablet {
+                width: 100%;
+                gap: 1.2rem;
+            }
+            .hero-card {
                 @include flex(center, center, column, 0.1rem);
-                width: 6.1rem;
-                height: 4.5rem;
-                box-shadow: 0.73829px 1.47658px 14.0275px rgba(0, 0, 0, 0.08);
-                gap: 0.1rem;
-                border-radius: $border-radius-slider-btn;
+                min-width: 9rem;
+                max-width: 14.3rem;
+                padding: 0.8rem;
+                box-shadow: $hero-article;
+                border-radius: $border-radius-card-hero;
+                background-color: white;
+                @include tablet {
+                    padding: 2.05rem;
+                    gap: 1rem;
+                }
                 h3 {
                     font-family: $font-avenir;
-                    font-size: 0.5rem;
+                    font-size: 0.9rem;
+                    @include tablet {
+                        font-size: 1.28rem;
+                        font-weight: 700;
+                        line-height: 1.4rem;
+                        letter-spacing: -0.01em;
+                    }
                 }
                 h4 {
                     font-family: $font-avenir;
-                    font-size: 0.4rem;
+                    font-size: 0.8rem;
+                    @include tablet {
+                        font-size: 1.03rem; 
+                        color: $color-text-muted;
+                    }
                 }
             } 
             span {
+                @include flex(center, center, column, null);
                 background-color: $color-btn-primary;
-                border-radius: $border-radius-icon;
-                width: 11px;
-                height: 11px;
-                font-size: 10px;
+                border-radius: $border-radius-icon; 
+                width: 1.1rem;
+                height: 1.1rem;
+                font-size: 1rem;
                 color: white;
-                @include flex(center, center, column);
+                @include tablet {
+                    width: 3.02rem;
+                    height: 3.02rem;
+                    font-size: 1.7rem;
+                }
+            }
+        }
+        .hero-bg {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width:23.2rem;
+            background-color: #E8DB84;
+            border-radius: $border-radius-default;
+            height: clamp(24.1rem, 18.53rem + 27.86vw, 40.8rem);
+            @include tablet {width: 50.4rem;}
+        }
+        .hero-img {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: 27.5rem;
+
+            @include tablet {
+                height: auto;
+            }
+        }
+    }
+
+    .hero__satisfied {
+        display: none;
+        @include tablet {
+            @include flex(center, center, row, 1.2rem);
+        }
+        .statistics {
+            line-height: 2rem;
+            font-weight: 500;
+            font-size: 1.30873rem;
+        }
+    }
+
+    .people {
+        @include flex(center, center, null, null);
+        & img {
+            position: relative;
+            object-fit: cover;
+            &:not(:first-child) {
+                margin-left: -0.5rem;
+            }
+        }        
+    }
+
+    .big {
+        & img {
+            position: relative;
+            object-fit: cover;
+            &:not(:first-child) {
+                margin-left: -2rem;
             }
         }
     }

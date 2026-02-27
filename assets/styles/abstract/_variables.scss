@@ -1,7 +1,7 @@
 /* 1. COLORS */
 
 /* 1.1 light theme colors */
-$color-background-main: #F5F5F5; //default color of body
+$color-background-main: #FFFFFF; //default color of body
 $color-header-primary: #052A44; // header background
 $color-btn-primary: #052A44; // buttons default background
 $color-btn-secondary: #ffffff; // buttons default background
@@ -28,13 +28,17 @@ $color-text-subtle-dark: #071210; //  section heading secondary text and about u
 
 /* 2.1 Border radius variables */
 $border-radius-default: 1.6rem; // default border-radius size
+$border-radius-card-hero: 1.373rem; // default border-radius size
 $border-radius-btn: 0.8rem; // buttons border-radius size
 $border-radius-icon: 50%; // icons border-radius size
 $border-radius-slider-btn: 0.6rem; // icons border-radius size
 
 
 /* 2.2 Fonts variables */
-$font-avenir: 'Avenir LT Std', sans-serif;
+$font-avenir: 'Avenir', sans-serif;
 $font-jakarta: 'Jakarta', sans-serif;
 $font-poppins: 'Poppins', sans-serif;
 
+/* box shadows */
+$hero-article: 0.73829px 1.47658px 14.0275px rgba(0, 0, 0, 0.08);
+$hero-play-btn: 2px -2px 38px rgba(0, 0, 0, 0.08);

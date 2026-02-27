@@ -1,2 +1,203 @@
-@use '../abstract/variables' as *;
-@use '../abstract/mixins' as *;
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+.service-wrapper {
+	display: grid;
+	place-content: center;
+	row-gap: 2.4rem;
+	border-radius: 2.9rem;
+	background-color: $color-accent;
+	grid-template: repeat(3, auto) / 1fr;
+	padding: 2.4rem 1.3rem;
+	@include tablet {
+		grid-template: 1fr / repeat(2, 1fr);
+		column-gap: 8.5rem;
+		padding: 8.4rem 9.6rem;
+	}
+}
+
+.service-hero {
+    @include flex(null, null, column, 2.4rem);
+	.service-title {
+		text-align: center;
+		@include tablet {
+			text-align: left;
+		}
+		h2 {
+			font-weight: 400;
+			font-size: 2.8rem;
+			line-height: 4rem;
+			letter-spacing: 0.2px;
+			color: $color-text-heading;
+			@include tablet {
+				font-weight: 600;
+				font-size: 4.2rem;
+				line-height: 6.3rem;
+				text-transform: capitalize;
+				color: $color-text-secondary;
+			}
+		}
+
+		p {
+			font-weight: 400;
+			font-size: 1.6rem;
+			line-height: 2.8rem;
+			color: $color-text-secondary;
+			@include tablet {
+				font-size: 1.8rem;
+				line-height: 2.7rem;
+			}
+		}
+	}
+
+	ul {
+		display: grid;
+		list-style: none;
+		row-gap: 2rem;
+		padding: 0;
+		font-weight: 400;
+		font-size: 1.4rem;
+		line-height: 2.2rem;
+		color: $color-text-secondary;
+
+		li {
+			display: grid;
+			grid-template-columns: auto 1fr;
+			align-items: center;
+			column-gap: 1.2rem;
+		}
+	}
+
+	span {
+        @include flex(center, center, row, null);
+		width: 3.8rem;
+		height: 3.8rem;
+		border-radius: 50%;
+		background-color: $color-text-primary;
+		margin-right: 1.2rem;
+		@include tablet {
+			width: 5.3rem;
+			height: 5.3rem;
+		}
+	}
+}
+
+.service-details {
+    @include flex(null, flex-end, row, null);
+	position: relative;
+	@include tablet {
+		grid-area: 1/1/3/2;
+		align-items: center;
+		justify-content: center;
+	}
+	.card-service {
+		display: grid;
+		grid-template-rows: auto 1fr;
+		width: 23.368rem;
+		background-color: $color-bg-overlay-primary;
+		backdrop-filter: blur(1.2rem);
+		--webkit-backdrop-filter: blur(1.2rem);
+		border-radius: 0.6rem;
+		overflow: hidden;
+		@include tablet {
+			width: 46.2rem;
+		}
+	}
+}
+
+.points {
+    @include flex(center, null, row, 0.3rem);
+	padding-left: 0.8rem;
+	background-color: $color-bg-overlay-secondary;
+	backdrop-filter: blur(2.52874rem);
+	min-height: 1.366rem;
+	@include tablet {
+		height: 2.7rem;
+		gap: 0.6rem;
+	}
+
+	span {
+		border-radius: 50%;
+		height: 0.5rem;
+		width: 0.5rem;
+		background-color: $color-btn-close;
+		@include tablet {
+			width: 1.1rem;
+			height: 1.1rem;
+		}
+
+		&:first-child {
+			background-color: $color-btn-close;
+		}
+
+		&:last-child {
+			background-color: $color-btn-max;
+		}
+	}
+}
+
+.img-service {
+	display: grid;
+	padding: 1.2rem;
+	gap: 1.2rem;
+	@include tablet {
+		gap: 2.4rem;
+		padding: 2.4rem 3.2rem;
+	}
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		border-radius: 0.7rem;
+		@include tablet {
+			&:first-child {
+				height: 20.3rem;
+			}
+			height: 17.6rem;
+		}
+	}
+
+	img:first-child {
+		grid-area: 1 / 1 / 2 / 3;
+	}
+}
+
+.service-details::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -2rem;
+	display: block;
+	width: 9.964rem;
+	height: 9.964rem;
+	border-radius: 50%;
+	background-color: $color-header-primary;
+	@include tablet {
+		width: 19.7rem;
+		height: 19.7rem;
+		left: -7%;
+		bottom: -5rem;
+	}
+}
+
+.btn-wrapper {
+    @include flex(center, center, row, null);
+	margin-top: 2.4rem;
+	@include tablet {
+		margin: 0;
+		justify-content: start;
+	}
+	.service-btn {
+		text-align: center;
+		padding: 0.8rem 1.2rem;
+		background: $color-header-primary;
+		border-radius: 0.8rem;
+		font-weight: 500;
+		font-size: 1.4rem;
+		color: $color-btn-secondary;
+		text-decoration: none;
+		@include tablet {
+			padding: 1.5rem 4.3rem;
+		}
+	}
+}

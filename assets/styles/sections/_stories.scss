@@ -1,2 +1,116 @@
-@use '../abstract/variables' as *;
-@use '../abstract/mixins' as *;
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+.story-wrapper {
+	display: none;
+	@include tablet {
+		display: grid;
+		place-content: center;
+		column-gap: 8.4rem;
+		border-radius: 2.9rem;
+		background-color: $color-accent;
+		grid-template: 1fr / repeat(2, 1fr);
+		padding: 2.4rem 1.3rem;
+		padding: 4rem 8rem 6.5rem 5.9rem;
+		position: relative;
+	}
+	&::before {
+		content: "";
+		display: block;
+		width: 19.7rem;
+		height: 19.7rem;
+		border-radius: 50%;
+		z-index: 1;
+		position: absolute;
+		left: 51rem;
+		bottom: 9rem;
+		background: $color-header-primary;
+	}
+	.story-title {
+        @include flex(null, null, column, 1.6rem);
+		h2 {
+			font-weight: 600;
+			font-size: 4.2rem;
+			line-height: 6.3rem;
+			text-transform: capitalize;
+		}
+		p {
+			font-weight: 400;
+			font-size: 1.8rem;
+			line-height: 2.7rem;
+		}
+	}
+	ul {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		align-items: center;
+		row-gap: 2rem;
+		margin-top: 2.4rem;
+		font-weight: 400;
+		font-size: 1.8rem;
+		line-height: 2.6rem;
+		list-style: none;
+		span {
+            @include flex(center,center,row,null);
+			width: 5.3rem;
+			height: 5.3rem;
+			border-radius: 50%;
+			background: $color-text-primary;
+			margin-right: 1.2rem;
+		}
+	}
+	.story-btn {
+		display: block;
+		margin-top: 3.2rem;
+		text-align: center;
+		padding: 1.5rem 4.3rem;
+		background: $color-header-primary;
+		width: 17.9rem;
+		border-radius: 0.8rem;
+		color: $color-btn-secondary;
+	}
+}
+
+.story-card {
+	width: 46.2rem;
+	height: 47.4rem;
+	background: $color-bg-overlay-primary;
+	backdrop-filter: blur(1.2rem);
+	border-radius: 1.2rem;
+	overflow: hidden;
+	z-index: 2;
+}
+.story-points {
+    @include flex(center, null, row, 0.6rem);
+	padding-left: 1.6rem;
+	height: 2.7rem;
+	background-color: $color-bg-overlay-secondary;
+	backdrop-filter: blur(2.52874rem);
+	span {
+		display: block;
+		width: 1.1rem;
+		height: 1.1rem;
+		background: $color-btn-min;
+		border-radius: 50%;
+		&:first-child {
+			background: $color-btn-close;
+		}
+		&:last-child {
+			background: $color-btn-max;
+		}
+	}
+}
+.img-story {
+	display: grid;
+	margin: 2rem 3.2rem 2.4rem 3.2rem;
+	gap: 2.4rem;
+	grid-template: 20.3rem 17.6rem / 15.1rem 1fr;
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover; 
+		&:first-child {
+			grid-area: 1/1/2/3;
+		}
+	}
+}

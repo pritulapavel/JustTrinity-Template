@@ -2,6 +2,7 @@
 @use './abstract/mixins' as *;
 @use './base/fonts';
 @use './base/reset';
+@use './animations/animations';
 @use './layouts/header';
 @use './layouts/main';
 @use './layouts/footer';

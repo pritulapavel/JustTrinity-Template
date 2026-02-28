@@ -13,4 +13,29 @@
     @include tablet {
 		padding: 1.5rem 4.4rem;
 	}
+	transition: all 0.3s ease;
+        &:hover {
+        background-color: $color-btn-secondary;
+        color: $color-btn-primary;
+        box-shadow: $color-about-card-shadow;
+    }
+}
+.read-more-reviews {
+	display: grid;
+	justify-self: center;
+	font-weight: 600;
+	color: $color-btn-secondary;
+	padding: 0.8rem 1.2rem;
+	background: $color-header-primary;
+	border-radius: 0.8rem;
+	cursor: pointer;
+    @include tablet {
+		padding: 1.5rem 4.4rem;
+	}
+	transition: all 0.3s ease;
+        &:hover {
+        background-color: $color-btn-secondary;
+        color: $color-btn-primary;
+        box-shadow: $color-about-card-shadow;
+    }
 }

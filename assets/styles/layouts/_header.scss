@@ -4,17 +4,17 @@
 
 .header {
 	width: 100%;
-}
-
-.header {
-	width: 100%;
 	padding: 2rem;
 	display: flex;
 	align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 
 	&__wrapper {
 		@include flex(center, space-between, null, 0);
 		width: 100%;
+    box-shadow: $color-about-card-shadow;
 	}
 
 	&__actions {
@@ -30,18 +30,18 @@
 
 // logo and icon default
 .header__logo {
-  @include flex(center, center, null, null);
+	@include flex(center, center, null, null);
 	position: relative;
 	min-width: 12rem;
 	min-height: 3.2rem;
-  z-index: 11;
+	z-index: 11;
 }
 
 .header__logo svg {
 	position: absolute;
 	top: 0;
 	left: 0;
-	transition: opacity 0.3s ease;
+	transition: opacity 0.3s ease; 
 }
 // test
 .header__logo img {
@@ -56,7 +56,7 @@
 	display: inline-block;
 	width: 2.4rem;
 	height: 2.4rem;
-  z-index: 11;
+	z-index: 11;
 }
 
 .theme-toggle svg {
@@ -80,7 +80,7 @@
 }
 
 .navbar {
-  @include flex(center, center, row, 1.2rem);
+	@include flex(center, center, row, 1.2rem);
 	.menu-toggle {
 		display: none;
 
@@ -88,13 +88,19 @@
 			transform: translateX(0);
 			opacity: 1;
 		}
-    &:checked ~ .burger-button {
-      .icon {
-        span:nth-child(1) { transform: rotate(45deg) translate(0.35rem, 0.35rem); }
-        span:nth-child(2) { opacity: 0; }
-        span:nth-child(3) { transform: rotate(-45deg) translate(0.35rem, -0.35rem);}
-      }
-    }
+		&:checked ~ .burger-button {
+			.icon {
+				span:nth-child(1) {
+					transform: rotate(45deg) translate(0.35rem, 0.35rem);
+				}
+				span:nth-child(2) {
+					opacity: 0;
+				}
+				span:nth-child(3) {
+					transform: rotate(-45deg) translate(0.35rem, -0.35rem);
+				}
+			}
+		}
 	}
 
 	.burger-button {
@@ -126,8 +132,6 @@
 		@include flex(null, space-around, column, 0);
 		position: fixed;
 		right: 0;
-		// width: 200px; // ან 80% დიზაინის მიხედვით
-		// height: 350px;
 		top: 0;
 		left: 0;
 		width: 100vw;
@@ -146,6 +150,11 @@
 				text-decoration: none;
 				color: $color-text-secondary;
 				font-size: 1.6rem;
+        transition: all 0.3s ease;
+          &:hover {
+              color: $color-btn-close;
+              box-shadow: $hero-play-btn;
+          }
 			}
 		}
 		.menu-actions {
@@ -237,7 +246,7 @@
 
 @media (min-width: 1024px) {
 	.desktop-toggle {
-		display: flex; /* ახლა გამოჩნდება desktop toggle */
+		display: flex;
 		cursor: pointer;
 		svg {
 			width: 2.4rem;
@@ -271,18 +280,6 @@
 
 			.theme-toggle {
 				display: none !important;
-				// order: 2;
-				// color: white;
-				// display: flex;
-				// cursor: pointer;
-				// svg {
-				//     width: 24px;
-				//     height: 24px;
-
-				//     path {
-				//         fill: white;
-				//     }
-				// }
 			}
 
 			.navbar {

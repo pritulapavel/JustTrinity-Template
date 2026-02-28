@@ -52,6 +52,13 @@
                 &--primary {
                     background-color: $color-btn-primary;
                     color: $color-btn-secondary;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background-color: $color-btn-secondary;
+                        color: $color-btn-primary;
+                        box-shadow: $hero-play-btn;
+                    }
                 }
                 
                 &--play { 
@@ -62,6 +69,7 @@
                     padding: 0.8rem;
                     width: 3.7rem;
                     height: 3.7rem;
+                    background-color: $color-background-main;
                     @include tablet {
                         width: 5.3rem;
                         height: 5.3rem; 
@@ -198,4 +206,17 @@
             }
         }
     }
+}
+
+#theme-toggle:checked ~ .page {
+	h1, p {
+        color: $color-text-secondary-dark;
+    }
+    h3 {
+        color: $color-text-subtle-dark;
+    }
+    .btn--primary {
+        background-color: $color-btn-secondary;
+        color: $color-btn-primary;
+    }   
 }

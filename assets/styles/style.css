@@ -152,6 +152,7 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-block;
   width: 2.4rem;
   height: 2.4rem;
+  z-index: 11;
 }
 
 .theme-toggle svg {
@@ -218,7 +219,7 @@ h1, h2, h3, h4, h5, h6 {
   gap: 0;
   position: fixed;
   right: 0;
-  top: 6rem;
+  top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;

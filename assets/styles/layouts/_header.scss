@@ -56,6 +56,7 @@
 	display: inline-block;
 	width: 2.4rem;
 	height: 2.4rem;
+  z-index: 11;
 }
 
 .theme-toggle svg {
@@ -120,7 +121,7 @@
 		right: 0;
 		// width: 200px; // ან 80% დიზაინის მიხედვით
 		// height: 350px;
-		top: 6rem;
+		top: 0;
 		left: 0;
 		width: 100vw;
 		height: 100vh;

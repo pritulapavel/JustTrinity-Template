@@ -6,19 +6,20 @@
 	width: 100%;
 
 	.footer__top {
-		@include flex(center, null, column, 1rem);
+		@include flex(center, null, column, 2rem);
 		width: 100%;
+		padding-bottom: 2rem;
 
-		.footer__contact {
+		& .footer__contact {
 			@include flex(center, space-between, column, 1rem);
 		}
 
-		.footer__social {
+		& .footer__social {
 			@include flex(center, space-between, column, 1rem);
 			.social__logos {
 				@include flex(center, center, null, 2rem);
 
-				.social__link {
+				& .social__link {
 					@include flex(center, center, null, null);
 					width: 4rem;
 					height: 4rem;
@@ -28,7 +29,7 @@
 					text-decoration: none;
 				}
 
-				svg {
+				& svg {
 					height: 18px;
 					width: auto;
 
@@ -44,7 +45,7 @@
 					// width: 17px;
 					// }
 
-					path {
+					& path {
 						fill: $color-text-secondary;
 						transition: fill 0.3s ease;
 					}
@@ -57,9 +58,12 @@
 			}
 		}
 
-		.footer-mail {
+		& .footer-mail {
 			@include flex(center, null, column, 1rem);
 		}
+	}
+	.desktop-cr {
+		display: none;
 	}
 }
 

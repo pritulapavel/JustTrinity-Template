@@ -526,6 +526,7 @@ main {
   padding: 0.8rem 1.2rem;
   background: #052A44;
   border-radius: 0.8rem;
+  cursor: pointer;
 }
 @media (min-width: 768px) {
   .read-more {
@@ -830,7 +831,7 @@ main {
   .about-cont .ellipse {
     position: absolute;
     left: 0.8rem;
-    bottom: 0.8rem;
+    bottom: -5.2rem;
     display: block;
     z-index: 1;
   }
@@ -1399,6 +1400,38 @@ main {
   font-size: 1.6rem;
   line-height: 180%;
   color: #071210;
+}
+
+.slide-btns {
+  display: none;
+}
+@media (min-width: 768px) {
+  .slide-btns {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 1.2rem;
+  }
+  .slide-btns .prev {
+    padding: 1.29rem 1.6rem;
+  }
+  .slide-btns .next {
+    background-color: #052A44;
+    border-radius: 0.8rem;
+    color: #ffffff;
+    padding: 1.29rem 1.6rem;
+  }
+}
+
+.read-more {
+  display: grid;
+}
+@media (min-width: 768px) {
+  .read-more {
+    display: none;
+  }
 }
 
 .user {

@@ -84,6 +84,30 @@
 	}
 }
 
+.slide-btns {
+	display: none;
+	@include tablet {
+		margin: 0 auto;
+		@include flex(center, center, row, 1.2rem);
+		.prev {
+			padding: 1.29rem 1.6rem;
+		}
+		.next {
+			background-color: $color-btn-primary;
+			border-radius: $border-radius-btn;
+			color: $color-btn-secondary;
+			padding: 1.29rem 1.6rem;
+		}
+	}
+}
+
+.read-more {
+	display: grid;
+	@include tablet{
+		display: none;
+	}
+}
+
 .user {
     @include flex(center, center, row);
     img {

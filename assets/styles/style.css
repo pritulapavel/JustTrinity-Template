@@ -414,6 +414,9 @@ h1, h2, h3, h4, h5, h6 {
 #theme-toggle:checked ~ .page .navbar .menu-toggle:checked ~ .menu-overlay {
   background-color: #1E2A39;
 }
+#theme-toggle:checked ~ .page .navbar .menu-overlay {
+  background-color: #1E2A39;
+}
 #theme-toggle:checked ~ .page .desktop-toggle .theme-dark {
   opacity: 1; /* აჩენს აიკონს დარქ მოუდში */
   pointer-events: auto;
@@ -1775,7 +1778,7 @@ main {
   flex-direction: column;
   gap: 2rem;
   background-color: #E8DB84;
-  border-radius: 1.5rem;
+  border-radius: 2.9rem;
   padding: 1.5rem;
 }
 .contact .contact__header {

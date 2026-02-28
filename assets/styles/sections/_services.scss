@@ -201,3 +201,10 @@
 		}
 	}
 }
+
+
+#theme-toggle:checked ~ .page {
+	.service-hero p, .service-hero h2 {
+        color: $color-text-subtle-dark;
+    }
+}

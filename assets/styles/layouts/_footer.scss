@@ -4,60 +4,45 @@
 .container__footer {
 	@include flex(center, null, column, 2rem);
 	width: 100%;
+	padding: 0 1.6rem;
 
 	.footer__top {
 		@include flex(center, null, column, 2rem);
 		width: 100%;
 		padding-bottom: 2rem;
-
 		& .footer__contact {
 			@include flex(center, space-between, column, 1rem);
+			& h2 {
+				color: $color-header-primary;
+			}
 		}
-
 		& .footer__social {
 			@include flex(center, space-between, column, 1rem);
 			.social__logos {
 				@include flex(center, center, null, 2rem);
 
-				& .social__link {
+				.social__link {
 					@include flex(center, center, null, null);
 					width: 4rem;
 					height: 4rem;
 					border: 1px solid $color-text-secondary;
 					border-radius: 50%;
-					transition: all 0.3s ease;
 					text-decoration: none;
-				}
+					color: $color-text-secondary; 
+					transition: all 0.3s ease;
 
-				& svg {
-					height: 18px;
-					width: auto;
-
-					// &:nth-child(1) {
-					// width: 9px;
-					// }
-
-					// &:nth-child(2) {
-					// width: 17px;
-					// }
-
-					// &:nth-child(3) {
-					// width: 17px;
-					// }
-
-					& path {
-						fill: $color-text-secondary;
-						transition: fill 0.3s ease;
+					svg {
+						height: 18px;
+						width: auto;
 					}
 
-					&:hover path {
-						fill: $color-text-heading;
-						border-color: $color-text-heading;
+					&:hover {
+						color: $color-btn-close;   
+						border-color: $color-btn-close;
 					}
 				}
 			}
 		}
-
 		& .footer-mail {
 			@include flex(center, null, column, 1rem);
 		}
@@ -68,7 +53,6 @@
 }
 
 // dark mode
-
 #theme-toggle:checked ~ .page {
 	.social__link {
 		border-color: $color-text-heading-dark;
@@ -79,10 +63,11 @@
 			}
 		}
 	}
+
+	h2 {
+		color: $color-text-secondary-dark;
+	}
 }
-
-// desktop
-
 @media (min-width: 1024px) {
 	.container__footer {
 		display: grid;
@@ -117,6 +102,10 @@
 			padding-top: 2.4rem;
 			margin-bottom: 4rem;
 			text-align: center;
+
+			a {
+				color: $color-btn-close;
+			}
 		}
 	}
 }

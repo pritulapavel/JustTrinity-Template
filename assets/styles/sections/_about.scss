@@ -11,9 +11,10 @@
 		@include tablet {
 			position: absolute;
 			left: 0.8rem;
-			bottom: -5.2rem;
+			bottom: 0.8rem;
 			display: block;
 			z-index: 1;
+			color: $ellipse-color-primary;
 		}
 	}
 }
@@ -81,6 +82,9 @@
 			line-height: 180%;
 			color: $color-text-subtle;
 		}
+		&:hover {
+			animation: bounce 0.7s forwards;
+		}
 	}
 }
 
@@ -104,3 +108,12 @@
 	}
 }
 
+#theme-toggle:checked ~ .page {
+	.about-us-card h2, .about-us-card p {
+        color: $color-text-subtle-dark;
+    }
+
+	.ellipse {
+		color: $ellipse-color-secondary;
+	}
+}

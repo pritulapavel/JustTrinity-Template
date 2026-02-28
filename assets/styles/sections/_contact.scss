@@ -15,26 +15,13 @@
 		padding: 1rem;
 		text-align: center;
 	}
-
-	.read-more {
-		display: grid;
-		justify-self: center;
-		font-weight: 600;
-		color: $color-btn-secondary;
-		padding: 0.8rem 1.2rem;
-		background: $color-header-primary;
-		border-radius: 0.8rem;
-		@include tablet {
-			padding: 1.5rem 4.4rem;
-		}
-	}
 }
 
 // dark mode
 
 #theme-toggle:checked ~ .page {
-	.contact {
-		color: $color-text-primary-dark;
+	.contact__header h2, .contact__header p {
+		color: $color-text-subtle-dark;
 	}
 }
 

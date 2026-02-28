@@ -68,6 +68,12 @@
 		width: 17.9rem;
 		border-radius: 0.8rem;
 		color: $color-btn-secondary;
+		transition: all 0.3s ease;
+		&:hover {
+			background-color: $color-btn-secondary;
+			color: $color-btn-primary;
+			box-shadow: $hero-play-btn;
+		}
 	}
 }
 
@@ -113,4 +119,9 @@
 			grid-area: 1/1/2/3;
 		}
 	}
+}
+#theme-toggle:checked ~ .page {
+	.story-hero p, .story-hero h2, .story-hero li {
+        color: $color-text-subtle-dark;
+    }
 }

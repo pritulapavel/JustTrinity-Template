@@ -1550,8 +1550,7 @@ main {
   flex-direction: column;
   gap: 2rem;
   background-color: #E8DB84;
-  border-radius: 15px;
-  margin: 1.5rem;
+  border-radius: 1.5rem;
   padding: 1.5rem;
 }
 .contact .contact__header {

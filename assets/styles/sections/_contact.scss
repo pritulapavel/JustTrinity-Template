@@ -1,59 +1,49 @@
-@use '../abstract/variables' as *;
-@use '../abstract/mixins' as *;
-
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
 
 .contact {
-    padding-top: 2rem;
-    
-    .contact__container {
-        @include flex(center, center, column, 2rem);
-        background-color: $color-accent;
-        border-radius: 15px;
-        margin: 1.5rem;
-        padding: 1.5rem;
-        
-    }
+	padding-top: 2rem;
+	.contact__container {
+		@include flex(center, center, column, 2rem);
+		background-color: $color-accent;
+		border-radius: 1.5rem;
+		padding: 1.5rem;
+	}
 
+	.contact__header {
+		@include flex(center, center, column, 2rem);
+		padding: 1rem;
+		text-align: center;
+	}
 
-.contact__header {
-    @include flex(center, center, column, 2rem); 
-    padding: 1rem;
-    text-align: center;
-
-}
-
-.read-more {
-    display: grid;
-    justify-self: center;
-    font-weight: 600;
-    color: $color-btn-secondary;
-    padding: 0.8rem 1.2rem;
-    background: $color-header-primary;
-    border-radius: 0.8rem;
-    @include tablet {
-    padding: 1.5rem 4.4rem;
-    }
-}
-
+	.read-more {
+		display: grid;
+		justify-self: center;
+		font-weight: 600;
+		color: $color-btn-secondary;
+		padding: 0.8rem 1.2rem;
+		background: $color-header-primary;
+		border-radius: 0.8rem;
+		@include tablet {
+			padding: 1.5rem 4.4rem;
+		}
+	}
 }
 
 // dark mode
 
 #theme-toggle:checked ~ .page {
-
-    .contact{
-        color: $color-text-primary-dark;
-    }
-    
+	.contact {
+		color: $color-text-primary-dark;
+	}
 }
 
 // desktop
 
 @media (min-width: 1024px) {
-    .contact{
-
-        .contact__container {
-            padding: 3rem 15rem;
-        }
-    }
+	.contact {
+		.contact__container {
+			padding: 3rem 15rem;
+		}
+	}
 }

@@ -165,7 +165,7 @@
 .service-details::before {
 	content: "";
 	position: absolute;
-	left: 0;
+	left: calc(100% - 265px);
 	bottom: -2rem;
 	display: block;
 	width: 9.964rem;

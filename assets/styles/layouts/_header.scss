@@ -8,7 +8,7 @@
 
 .header {
     width: 100%;
-    padding: 20px;
+    padding: 2rem;
     display: flex;
     align-items: center;
 
@@ -19,7 +19,7 @@
   
 
   &__actions {
-    @include flex(center, null, null, 15px);    
+    @include flex(center, null, null, 1.5rem);    
   }
   
   .header__wrapper {
@@ -31,12 +31,11 @@
 
 
 // logo and icon default
-
 .header__logo {
   position: relative;
   display: inline-block;
-  min-width: 120px;
-  min-height: 32px;
+  min-width: 12rem;
+  min-height: 3.2rem;
   
 }
 
@@ -58,8 +57,8 @@
 .theme-toggle {
   position: relative;
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  width: 2.4rem;
+  height: 2.4rem;
 }
 
 .theme-toggle svg {
@@ -99,20 +98,20 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;    
-    width: 100px;
-    height: 37px;
+    gap: 1rem;    
+    width: 10rem;
+    height: 3.7rem;
     z-index: 101;
     position: relative;
     
     
     .icon {
-      @include flex(null, null, column, 3px);
-      width: 18px;
+      @include flex(null, null, column, 0.3rem);
+      width: 1.8rem;
 
       span {
         display: block;
-        height: 2px;
+        height: 0.2rem;
         width: 100%;
         background-color: $color-burger-menu;
         transition: 0.3s;
@@ -135,31 +134,31 @@
     width: 100vw;
     height: 100vh;
     background: $color-btn-secondary;
-    padding: 60px 20px 20px 20px;
+    padding: 6rem 2rem 2rem 2rem;
     transform: translateX(100%);
     transition: transform 0.4s ease-in-out;
     z-index: 99;
 
     .menu-links {
-      @include flex(center, null, column, 25px);
+      @include flex(center, null, column, 2.5rem);
       list-style: none;
       
       a {
         text-decoration: none;
         color: $color-text-secondary;      
-        font-size: 16px;
+        font-size: 1.6rem;
       }
       
     }
     .menu-actions {
-      @include flex(center, center, column, 20px);
+      @include flex(center, center, column, 2rem);
               
 
         .btn-primary {
         display: block;
-        padding: 12px 30px;
-        border: 2px;
-        border-radius: 8px;
+        padding: 1.2rem 3rem;
+        border: 0.2rem;
+        border-radius: 0.8rem;
         background-color: $color-text-secondary;
         color: $color-background-main;
         width: auto;
@@ -250,8 +249,8 @@
     display: flex;       /* ახლა გამოჩნდება desktop toggle */
     cursor: pointer;
     svg {
-      width: 24px;
-      height: 24px;
+      width: 2.4rem;
+      height: 2.4rem;
       path {
         fill: $color-text-primary;
       }
@@ -264,10 +263,10 @@
     
     .header__wrapper {
       @include flex(center, space-between, null, 0);
-        border-radius: 8px;
+        border-radius: 0.8rem;
         background-color: $color-btn-primary;
         color: $color-text-primary;
-        padding: 10px 24px;
+        padding: 1rem 2.4rem;
         
         
 
@@ -281,7 +280,7 @@
         }
 
         .header__actions {
-          @include flex(center, flex-end, null, 30px);
+          @include flex(center, flex-end, null, 3rem);
             flex: 1;
                     
             
@@ -305,7 +304,7 @@
 
         .navbar {
             .menu-overlay {
-              @include flex(center, space-between, row, 40px);
+              @include flex(center, space-between, row, 4rem);
                 width: 100%;
                 position: static;
                 height: auto;
@@ -320,7 +319,7 @@
                     transform: translateX(-80%);
                 }
                 .desktop-toggle {
-                    @include flex(null, null, null, 0);
+                    @include flex(null, null, null, null);
                     cursor: pointer;
 
                     .theme-dark {
@@ -338,7 +337,7 @@
 
 
     &__actions {
-      @include flex(center, null, null, 30px);
+      @include flex(center, null, null, 3rem);
       
     }
   }
@@ -351,7 +350,7 @@
     }
 
     .menu-overlay {
-      @include flex(center, null, null, 40px);
+      @include flex(center, null, null, 4rem);
       position: static;
       transform: none;
       opacity: 1;
@@ -362,7 +361,7 @@
       
 
       .menu-links {
-        @include flex(null, null, row, 30px);
+        @include flex(null, null, row, 3rem);
         
 
         a {
@@ -372,7 +371,7 @@
       }
 
       .menu-actions {
-        @include flex(null, null, row, 20px);
+        @include flex(null, null, row, 2rem);
         
 
         .btn-signin {
@@ -383,7 +382,7 @@
 
         .btn-primary {
           width: auto;
-          padding: 10px 24px;
+          padding: 1rem 2.4rem;
           background-color: $color-text-primary;
           color: $color-text-secondary;
           border: none;

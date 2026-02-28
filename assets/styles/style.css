@@ -103,7 +103,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .header {
   width: 100%;
-  padding: 20px;
+  padding: 2rem;
   display: flex;
   align-items: center;
 }
@@ -117,7 +117,7 @@ h1, h2, h3, h4, h5, h6 {
 .header__actions {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 1.5rem;
 }
 .header .header__wrapper .header-text {
   display: none;
@@ -126,8 +126,8 @@ h1, h2, h3, h4, h5, h6 {
 .header__logo {
   position: relative;
   display: inline-block;
-  min-width: 120px;
-  min-height: 32px;
+  min-width: 12rem;
+  min-height: 3.2rem;
 }
 
 .header__logo svg {
@@ -147,8 +147,8 @@ h1, h2, h3, h4, h5, h6 {
 .theme-toggle {
   position: relative;
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  width: 2.4rem;
+  height: 2.4rem;
 }
 
 .theme-toggle svg {
@@ -182,21 +182,21 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  width: 100px;
-  height: 37px;
+  gap: 1rem;
+  width: 10rem;
+  height: 3.7rem;
   z-index: 101;
   position: relative;
 }
 .navbar .burger-button .icon {
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  width: 18px;
+  gap: 0.3rem;
+  width: 1.8rem;
 }
 .navbar .burger-button .icon span {
   display: block;
-  height: 2px;
+  height: 0.2rem;
   width: 100%;
   background-color: #3A4C66;
   transition: 0.3s;
@@ -216,7 +216,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100vw;
   height: 100vh;
   background: #ffffff;
-  padding: 60px 20px 20px 20px;
+  padding: 6rem 2rem 2rem 2rem;
   transform: translateX(100%);
   transition: transform 0.4s ease-in-out;
   z-index: 99;
@@ -225,26 +225,26 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 25px;
+  gap: 2.5rem;
   list-style: none;
 }
 .navbar .menu-overlay .menu-links a {
   text-decoration: none;
   color: #000000;
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 .navbar .menu-overlay .menu-actions {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 20px;
+  gap: 2rem;
 }
 .navbar .menu-overlay .menu-actions .btn-primary {
   display: block;
-  padding: 12px 30px;
-  border: 2px;
-  border-radius: 8px;
+  padding: 1.2rem 3rem;
+  border: 0.2rem;
+  border-radius: 0.8rem;
   background-color: #000000;
   color: #FFFFFF;
   width: auto;
@@ -312,8 +312,8 @@ h1, h2, h3, h4, h5, h6 {
     cursor: pointer;
   }
   .desktop-toggle svg {
-    width: 24px;
-    height: 24px;
+    width: 2.4rem;
+    height: 2.4rem;
   }
   .desktop-toggle svg path {
     fill: #FFFFFF;
@@ -323,10 +323,10 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: space-between;
     gap: 0;
-    border-radius: 8px;
+    border-radius: 0.8rem;
     background-color: #052A44;
     color: #FFFFFF;
-    padding: 10px 24px;
+    padding: 1rem 2.4rem;
   }
   .header .header__wrapper .header-text {
     display: block;
@@ -338,7 +338,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 30px;
+    gap: 3rem;
     flex: 1;
   }
   .header .header__wrapper .theme-toggle {
@@ -349,7 +349,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
-    gap: 40px;
+    gap: 4rem;
     width: 100%;
     position: static;
     height: auto;
@@ -365,7 +365,6 @@ h1, h2, h3, h4, h5, h6 {
   }
   .header .header__wrapper .navbar .menu-overlay .desktop-toggle {
     display: flex;
-    gap: 0;
     cursor: pointer;
   }
   .header .header__wrapper .navbar .menu-overlay .desktop-toggle .theme-dark {
@@ -378,7 +377,7 @@ h1, h2, h3, h4, h5, h6 {
   .header__actions {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 3rem;
   }
   .navbar .burger-button {
     display: none;
@@ -386,7 +385,7 @@ h1, h2, h3, h4, h5, h6 {
   .navbar .menu-overlay {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 4rem;
     position: static;
     transform: none;
     opacity: 1;
@@ -398,7 +397,7 @@ h1, h2, h3, h4, h5, h6 {
   .navbar .menu-overlay .menu-links {
     display: flex;
     flex-direction: row;
-    gap: 30px;
+    gap: 3rem;
   }
   .navbar .menu-overlay .menu-links a {
     font-weight: 500;
@@ -407,7 +406,7 @@ h1, h2, h3, h4, h5, h6 {
   .navbar .menu-overlay .menu-actions {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 2rem;
   }
   .navbar .menu-overlay .menu-actions .btn-signin {
     text-decoration: none;
@@ -416,7 +415,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   .navbar .menu-overlay .menu-actions .btn-primary {
     width: auto;
-    padding: 10px 24px;
+    padding: 1rem 2.4rem;
     background-color: #FFFFFF;
     color: #000000;
     border: none;

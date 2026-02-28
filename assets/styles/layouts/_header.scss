@@ -10,6 +10,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  background: $color-background-main;
 
 	&__wrapper {
 		@include flex(center, space-between, null, 0);
@@ -86,6 +87,7 @@
 		&:checked ~ .menu-overlay {
 			transform: translateX(0);
 			opacity: 1;
+      
 		}
 		&:checked ~ .burger-button {
 			.icon {
@@ -188,9 +190,7 @@
 				background-color: $color-background-main-dark;
 			}
 		}
-		.menu-overlay {
-			background-color: $color-background-main-dark;
-		}
+	
 	}
 
 	.desktop-toggle {
